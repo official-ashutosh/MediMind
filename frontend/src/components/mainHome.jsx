@@ -38,20 +38,20 @@ const HomePage = () => {
           {`
             /* Metallic styling for squares without changing their layout */
             .metallic-square {
-              border-color: #ffc05c !important;
-              box-shadow: 0 0 10px rgba(255, 192, 92, 0.3);
+              border-color: #1976d2 !important;
+              box-shadow: 0 0 10px rgba(25, 118, 210, 0.3);
               transition: all 0.5s ease !important;
             }
             
             .metallic-square:hover {
-              background-color: rgba(255, 192, 92, 0.1) !important;
+              background-color: rgba(25, 118, 210, 0.1) !important;
               transform: scale(1.02) !important;
             }
             
             /* Button styling */
             .cta-btn {
-              background: linear-gradient(135deg, #ff9c00 0%, #ff8900 100%);
-              color: #222;
+              background: linear-gradient(135deg, #1976d2 0%, #0d47a1 100%);
+              color: #fff;
               font-weight: bold;
               border: none;
               padding: 12px 24px;
@@ -59,12 +59,12 @@ const HomePage = () => {
               margin: 10px;
               cursor: pointer;
               transition: all 0.3s ease;
-              box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+              box-shadow: 0 5px 15px rgba(25, 118, 210, 0.3);
             }
             
             .cta-btn:hover {
               transform: translateY(-3px);
-              box-shadow: 0 8px 20px rgba(255, 140, 0, 0.4);
+              box-shadow: 0 8px 20px rgba(25, 118, 210, 0.4);
             }
             
             /* Feature card styling - keeping original layout */
@@ -112,7 +112,7 @@ const HomePage = () => {
               height: 2px;
               bottom: -5px;
               left: 0;
-              background-color: #ffc05c;
+              background-color: #00897b;
               transition: width 0.3s ease;
             }
             
@@ -122,10 +122,16 @@ const HomePage = () => {
             
             /* Hero section styling */
             .hero-title {
-              background: linear-gradient(to right, #ffffff, #ff8c00);
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-              text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+              color: #0d47a1;
+              font-weight: 900;
+              text-shadow: 3px 3px 6px rgba(255, 255, 255, 0.9),
+                           -1px -1px 2px rgba(0, 0, 0, 0.3);
+              background: rgba(255, 255, 255, 0.85);
+              padding: 20px 40px;
+              border-radius: 15px;
+              display: inline-block;
+              box-shadow: 0 8px 30px rgba(13, 71, 161, 0.4);
+              border: 3px solid #1976d2;
             }
             
             /* Popup styling */
@@ -159,7 +165,7 @@ const HomePage = () => {
               justify-content: space-between;
               align-items: center;
               margin-bottom: 20px;
-              border-bottom: 2px solid #ffc05c;
+              border-bottom: 2px solid #00897b;
               padding-bottom: 10px;
             }
             
@@ -170,7 +176,7 @@ const HomePage = () => {
             }
             
             .popup-close {
-              background: linear-gradient(135deg, #ff8c00 0%, #ffc05c 100%);
+              background: linear-gradient(135deg, #1976d2 0%, #00897b 100%);
               color: white;
               border: none;
               width: 30px;
@@ -203,20 +209,20 @@ const HomePage = () => {
             }
             
             .popup-footer button {
-              background: linear-gradient(135deg, #ffc05c 0%, #ff8c00 100%);
-              color: #222;
+              background: linear-gradient(135deg, #00897b 0%, #1976d2 100%);
+              color: #fff;
               font-weight: bold;
               border: none;
               padding: 10px 20px;
               border-radius: 30px;
               cursor: pointer;
               transition: all 0.3s ease;
-              box-shadow: 0 3px 8px rgba(255, 140, 0, 0.3);
+              box-shadow: 0 3px 8px rgba(25, 118, 210, 0.3);
             }
             
             .popup-footer button:hover {
               transform: translateY(-3px);
-              box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+              box-shadow: 0 5px 15px rgba(25, 118, 210, 0.4);
             }
             
             @keyframes fadeIn {
@@ -238,7 +244,7 @@ const HomePage = () => {
               font-size: 28px;
               font-weight: bold;
               margin: 20px 0;
-              color: #ff8c00;
+              color: #1976d2;
               animation: pulse 2s infinite;
             }
             
@@ -255,7 +261,7 @@ const HomePage = () => {
             }
             
             .privacy-content h3 {
-              color: #ff8c00;
+              color: #00897b;
               margin-top: 20px;
               margin-bottom: 10px;
             }
@@ -270,7 +276,7 @@ const HomePage = () => {
             }
             
             .privacy-content::-webkit-scrollbar-thumb {
-              background: #ffc05c;
+              background: #1976d2;
               border-radius: 10px;
             }
           `}
@@ -279,8 +285,8 @@ const HomePage = () => {
           speed={0.2}
           squareSize={40}
           direction="diagonal" // maintaining original settings
-          borderColor="#ffc05c"
-          hoverFillColor="#222"
+          borderColor="#1976d2"
+          hoverFillColor="#0d47a1"
           className="metallic-square"
         />
       </div>
@@ -307,6 +313,7 @@ const HomePage = () => {
       {/* Features Section - keeping original layout */}
       <section className="features-section">
         <div className="feature-card">
+          <div className="feature-icon">🤖</div>
           <h3 className="feature-title">Disease Prediction using AI</h3>
           <p className="feature-description">
             Our advanced machine learning models analyze symptoms and predict
@@ -314,6 +321,7 @@ const HomePage = () => {
           </p>
         </div>
         <div className="feature-card">
+          <div className="feature-icon">👨‍⚕️</div>
           <h3 className="feature-title">Personalized Doctor Recommendations</h3>
           <p className="feature-description">
             Get matched with doctors based on location, specialty, and
@@ -321,6 +329,7 @@ const HomePage = () => {
           </p>
         </div>
         <div className="feature-card">
+          <div className="feature-icon">🌿</div>
           <h3 className="feature-title">Verified Home Remedies Suggestions</h3>
           <p className="feature-description">
             Discover expert-reviewed home remedies for common conditions and
@@ -328,10 +337,27 @@ const HomePage = () => {
           </p>
         </div>
         <div className="feature-card">
+          <div className="feature-icon">📊</div>
           <h3 className="feature-title">User-Friendly Reports</h3>
           <p className="feature-description">
             Receive clear and actionable health reports that help you make
             better health decisions.
+          </p>
+        </div>
+        <div className="feature-card">
+          <div className="feature-icon">🏥</div>
+          <h3 className="feature-title">Hospital Finder & Appointment Booking</h3>
+          <p className="feature-description">
+            Locate nearby hospitals and clinics, view their specialties, and book
+            appointments seamlessly through our integrated platform.
+          </p>
+        </div>
+        <div className="feature-card">
+          <div className="feature-icon">💬</div>
+          <h3 className="feature-title">24/7 AI Health Chatbot</h3>
+          <p className="feature-description">
+            Get instant answers to health queries anytime with our intelligent
+            chatbot that provides reliable medical information and guidance.
           </p>
         </div>
       </section>

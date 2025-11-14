@@ -8,24 +8,24 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const HospitalCard = ({ hospital }) => {
   return (
-    <div className="backdrop-blur-lg bg-white/10 shadow-xl rounded-2xl border border-white/30 p-4 relative">
+    <div className="backdrop-blur-lg bg-white/90 shadow-xl rounded-2xl border border-gray-200 p-4 relative hover:shadow-2xl transition-shadow duration-300">
       <img
         src={hospital.image || hospitalImage} // Use API image or default one
         alt={hospital.name}
         className="w-full h-48 object-cover rounded-xl"
       />
       <div className="p-4">
-        <h2 className="text-xl font-semibold text-[#242120]">{hospital.name}</h2>
-        <p className="text-[#242120]">{hospital.address}</p>
+        <h2 className="text-xl font-semibold text-[#0d47a1]">{hospital.name}</h2>
+        <p className="text-gray-700">{hospital.address}</p>
         <div className="flex items-center gap-2 mt-2">
-          <span className="w-5 h-5 text-blue-300">📞</span>
-          <span className="text-[#050505] font-medium">{hospital.contact_no}</span>
+          <span className="w-5 h-5">📞</span>
+          <span className="text-gray-800 font-medium">{hospital.contact_no}</span>
         </div>
         <a
           href={hospital.map_link || `https://www.google.com/maps?q=${hospital.name}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 flex items-center gap-2 text-white bg-[#FF8A26] px-4 py-2 rounded-lg hover:bg-[#E65100]"
+          className="mt-4 flex items-center gap-2 text-white bg-[#1976d2] px-4 py-2 rounded-lg hover:bg-[#0d47a1]"
         >
           <span className="w-5 h-5">📍</span> View on Map
         </a>
@@ -66,8 +66,8 @@ const HospitalList = () => {
           speed={0.2} 
           squareSize={40}
           direction="diagonal" // up, down, left, right, diagonal
-          borderColor="#ffc05c"
-          hoverFillColor="#222"
+          borderColor="#1976d2"
+          hoverFillColor="#0d47a1"
         />
       </div>
       
@@ -78,9 +78,9 @@ const HospitalList = () => {
       <div className="flex flex-col items-center w-full z-10">
         {/* Loading and Error States */}
         {loading ? (
-          <p className="text-center text-lg font-semibold mt-10">Loading hospitals...</p>
+          <p className="text-center text-lg font-semibold mt-10 text-[#1976d2]">Loading hospitals...</p>
         ) : error ? (
-          <p className="text-center text-red-500 mt-10">{error}</p>
+          <p className="text-center text-red-600 font-semibold mt-10">{error}</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6 max-w-7xl mx-auto">
             {hospitals.map((hospital, index) => (

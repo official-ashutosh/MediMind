@@ -133,7 +133,7 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import logo from "../assets/medsai-logo2-white.png";
+import logo from "../assets/medimind-logo-white.svg";
 import { AuthContext } from "../context/AuthContext";
 import TheClockComponent from "./TheClockComponent";
 

@@ -232,7 +232,7 @@ const SymptomPredictor = ({ onPredictionResult }) => {
       <button
         onClick={getPrediction}
         disabled={loading || symptoms.length === 0}
-        className="w-full bg-gradient-to-r from-[#ff8c42] to-[#ff3e55] text-white font-bold py-2 px-6 rounded-lg hover:scale-105 transition-all duration-300"
+        className="w-full bg-gradient-to-r from-[#1976d2] to-[#00897b] text-white font-bold py-2 px-6 rounded-lg hover:scale-105 transition-all duration-300"
       >
         {loading ? 'Predicting...' : 'Predict Disease'}
       </button>

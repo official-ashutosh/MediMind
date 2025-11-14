@@ -4,9 +4,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Squares from './Squares';
 import { Link } from 'react-router-dom'
-import adhiImage from "../assets/adhi.jpg";
-import annImage from "../assets/ann.jpg";
-import tonyImage from "../assets/tony.jpg";
+import ashuImage from "../assets/ashu.jpeg";
+import hmtImage from "../assets/hmt.jpeg";
+import deepakImage from "../assets/deepak.jpeg";
+import pooniImage from "../assets/pooni.jpeg"; // Using doctor image for 4th contributor
 
 const AboutUs = () => {
   const [isHovering, setIsHovering] = useState(false);
@@ -50,145 +51,138 @@ const AboutUs = () => {
   }, [isHovering]);
 
   return (
-    <div className="relative min-h-screen overflow-hidden p-5">
+    <div className="relative h-screen overflow-hidden">
       {/* Background squares */}
       <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: -1 }}>
         <Squares 
           speed={0.2} 
           squareSize={40}
           direction='diagonal'
-          borderColor='#ffc05c'
-          hoverFillColor='#222'
+          borderColor='#1976d2'
+          hoverFillColor='#0d47a1'
         />
       </div>
 
       {/* Light gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-sky-300/30 to-blue-500/30 z-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-teal-50/30 z-0"></div>
 
       {/* Main content */}
-      <div className="relative z-10 min-h-screen p-12">
-        <div className="max-w-6xl mx-auto">
+      <div className="relative z-10 h-screen flex flex-col p-6">
+        <div className="max-w-7xl mx-auto w-full flex-1 flex flex-col">
           {/* Header */}
-          <div className="flex flex-col items-center mb-16">
-            <h1 className="text-6xl font-bold text-white mb-4 drop-shadow-lg">About Us</h1>
-            <div className="w-32 h-1 bg-white/80 rounded-full"></div>
+          <div className="flex flex-col items-center mb-6">
+            <h1 className="text-4xl font-extrabold text-[#0d47a1] mb-2 drop-shadow-lg bg-white/90 px-6 py-2 rounded-xl shadow-xl">About Us</h1>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#0d47a1] via-[#1976d2] to-[#00897b] rounded-full"></div>
           </div>
 
-                    {/* Content Sections */}
-                    <div className="grid md:grid-cols-12 gap-8 text-white">
+          {/* Contributors Section at Top */}
+          <div className="mb-4">
+            <div className="relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1976d2] to-[#00897b] rounded-2xl shadow-xl"></div>
+              <div className="relative p-3 text-white z-10 flex items-center justify-between">
+                <div className="flex-1">
+                  <h2 className="text-xl font-bold mb-1">Our Contributors</h2>
+                  <p className="text-sm leading-relaxed">
+                    <span className="font-semibold">Ashutosh, Deepak, Hemant, Poonam</span> - guided by <span className="font-semibold">KP Singh</span>
+                  </p>
+                </div>
+                
+                {/* Team Photos */}
+                <div className="flex gap-2 ml-4">
+                  {[
+                    { link: "https://www.linkedin.com/in/ashusolver/", img: ashuImage, name: "Ashutosh" },
+                    { link: "https://www.linkedin.com/in/deepak/", img: deepakImage, name: "Deepak" },
+                    { link: "https://www.linkedin.com/in/ashusolver/", img: hmtImage, name: "Hemant" },
+                    { link: "https://www.linkedin.com/in/ashusolver/", img: pooniImage, name: "Poonam" }
+                  ].map((person, idx) => (
+                    <a 
+                      key={idx}
+                      href={person.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-14 h-14 rounded-lg shadow-lg transition-all duration-300 hover:scale-110 hover:z-50 flex items-center justify-center overflow-hidden border-2 border-white relative group"
+                    >
+                      <img 
+                        src={person.img} 
+                        alt={person.name} 
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-1">
+                        <p className="text-white font-bold text-[10px] drop-shadow-lg">{person.name}</p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Content Sections - Compact Grid */}
+          <div className="grid md:grid-cols-3 gap-3 max-h-[35vh]">
             {/* Our Story */}
-            <div className="md:col-span-7 relative group">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-[60px] shadow-xl"></div>
-              <div className="relative p-10 z-10">
-                <h2 className="text-3xl font-bold mb-6">Our Story</h2>
-                <strong>AI-Powered Health, One Step Ahead.</strong>
-                <p className="text-lg">
-                MediMind is revolutionizing healthcare with AI-driven disease prediction. By analyzing symptoms in real time, it connects users to accurate diagnoses and the right medical care—faster, smarter, and more precise than ever before.
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0d47a1] to-[#00897b] rounded-2xl shadow-xl transform transition-all duration-300 group-hover:scale-[1.02]"></div>
+              <div className="relative p-4 z-10 h-full flex flex-col">
+                <h2 className="text-xl font-bold mb-3 text-white">Our Story</h2>
+                <p className="text-sm font-bold mb-2 text-yellow-300">AI-Powered Health, One Step Ahead.</p>
+                <p className="text-sm leading-relaxed text-white">
+                  MediMind is revolutionizing healthcare with AI-driven disease prediction, connecting users to accurate diagnoses faster and smarter.
                 </p>
               </div>
             </div>
 
             {/* Our Mission */}
-            <div className="md:col-span-5 relative group md:mt-16">
-              <div className="absolute inset-0 bg-gradient-to-bl from-blue-500 to-indigo-600 rounded-[45px] shadow-xl"></div>
-              <div className="relative p-8 z-10">
-                <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
-                <p className="text-lg">
-                  We're on a mission to revolutionize how people interact with technology. 
-                </p>
-              </div>
-            </div>
-
-            {/* Our Team */}
-            <div className="md:col-span-5 relative group">
-              <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600 to-blue-400 rounded-[70px] shadow-xl"></div>
-              <div className="relative p-8 z-10">
-                <h2 className="text-3xl font-bold mb-4">Our Team</h2>
-                <p className="text-lg">
-                Our diverse team—Adhith K L, Ann Geo, and Tony K Seby, guided by Ms. Iris Jose—brings together expertise from various fields,
-                 united by a shared passion for innovation. We believe in collaboration, creativity, and continuous learning, driving the future of AI-powered healthcare.
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-bl from-[#1976d2] to-[#0d47a1] rounded-2xl shadow-xl transform transition-all duration-300 group-hover:scale-[1.02]"></div>
+              <div className="relative p-4 z-10 h-full flex flex-col">
+                <h2 className="text-xl font-bold mb-3 text-white">Our Mission</h2>
+                <p className="text-sm leading-relaxed text-white">
+                  We're on a mission to revolutionize how people interact with healthcare technology, making medical predictions accessible to everyone.
                 </p>
               </div>
             </div>
 
             {/* Our Values */}
-            <div className="md:col-span-7 relative group md:mt-8">
-              <div className="absolute inset-0 bg-gradient-to-l from-cyan-500 to-blue-600 rounded-[55px] shadow-xl transform transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-2xl"></div>
-              <div className="relative p-10 z-10">
-                <h2 className="text-3xl font-bold mb-4">Our Values</h2>
-                <div className="grid grid-cols-2 gap-4 text-lg">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-3 h-3 rounded-full bg-white"></div>
-                    <span>Innovation in everything</span>
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-l from-[#00897b] to-[#0d47a1] rounded-2xl shadow-xl transform transition-all duration-300 group-hover:scale-[1.02]"></div>
+              <div className="relative p-4 z-10 h-full flex flex-col">
+                <h2 className="text-xl font-bold mb-3 text-white">Our Values</h2>
+                <div className="grid grid-cols-1 gap-2 text-sm">
+                  <div className="flex items-center space-x-2 bg-white/10 p-2 rounded-lg backdrop-blur-sm">
+                    <div className="w-2 h-2 rounded-full bg-yellow-300 flex-shrink-0"></div>
+                    <span className="text-white">Innovation</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-3 h-3 rounded-full bg-white"></div>
-                    <span>Integrity in relationships</span>
+                  <div className="flex items-center space-x-2 bg-white/10 p-2 rounded-lg backdrop-blur-sm">
+                    <div className="w-2 h-2 rounded-full bg-yellow-300 flex-shrink-0"></div>
+                    <span className="text-white">Integrity</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-3 h-3 rounded-full bg-white"></div>
-                    <span>Impact through solutions</span>
+                  <div className="flex items-center space-x-2 bg-white/10 p-2 rounded-lg backdrop-blur-sm">
+                    <div className="w-2 h-2 rounded-full bg-yellow-300 flex-shrink-0"></div>
+                    <span className="text-white">Impact</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-3 h-3 rounded-full bg-white"></div>
-                    <span>Inclusivity in community</span>
+                  <div className="flex items-center space-x-2 bg-white/10 p-2 rounded-lg backdrop-blur-sm">
+                    <div className="w-2 h-2 rounded-full bg-yellow-300 flex-shrink-0"></div>
+                    <span className="text-white">Inclusivity</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Contact & Rotating Crates Section */}
-          <div className="mt-16 flex flex-col md:flex-row items-center justify-between">
-            {/* Contact Section */}
-            <div className="md:w-2/3 relative overflow-hidden group mb-8 md:mb-0">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-[100px] shadow-xl"></div>
-              <div className="relative p-8 text-white z-10">
-                <h2 className="text-3xl font-bold mb-4 text-center">Get In Touch</h2>
-                <p className="text-lg text-center mb-6">
+          {/* Contact Section at Bottom */}
+          <div className="mt-4">
+            <div className="relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1976d2] to-[#00897b] rounded-2xl shadow-xl transform transition-all duration-300 group-hover:scale-[1.02]"></div>
+              <div className="relative p-3 text-white z-10 text-center">
+                <h2 className="text-xl font-bold mb-1">Get In Touch</h2>
+                <p className="text-sm mb-2">
                   We'd love to hear from you. Let's start a conversation.
                 </p>
-                <div className="flex justify-center">
-                  <Link to ="/contact" className="px-8 py-3 bg-white text-blue-600 font-bold rounded-full hover:bg-opacity-90">
-                    Contact Us
-                  </Link>
-                </div>
+                <Link to="/contact" className="inline-block px-5 py-2 bg-white text-[#0d47a1] font-bold rounded-full hover:bg-opacity-90 transition-all duration-300 hover:scale-105 shadow-lg text-sm">
+                  Contact Us
+                </Link>
               </div>
             </div>
-
-            {/* Rotating Crates with Hover Effect */}
-{/*             <div 
-              ref={cratesRef} 
-              className="md:w-1/3 h-48 relative z-30 flex justify-center"
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
-            >
-              {[
-                { color1: "blue-400", color2: "cyan-300", id: 0, link: "https://www.linkedin.com/in/adhithkl/", img: adhiImage, name: "Adhith" },
-                { color1: "cyan-400", color2: "blue-300", id: 2, link: "https://www.linkedin.com/in/anngeo/", img: annImage, name: "Ann" },
-                { color1: "indigo-400", color2: "blue-300", id: 1, link: "https://www.linkedin.com/in/tonykseby/", img: tonyImage, name: "Tony" }
-              ].map((colorSet) => (
-                <a 
-                  key={colorSet.id}
-                  href={colorSet.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`crate absolute w-24 h-24 bg-gradient-to-br from-${colorSet.color1} to-${colorSet.color2} rounded-2xl shadow-lg opacity-80 transition-all duration-300 hover:opacity-100 hover:scale-110 flex items-center justify-center overflow-hidden`}
-                >
-               
-                  <img 
-                    src={colorSet.img} 
-                    alt={colorSet.name} 
-                    className="w-full h-full object-cover rounded-2xl"
-                  />
-                  
-                
-                  <div className="absolute inset-0 bg-black/50 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <p className="text-white font-medium text-sm">{colorSet.name}</p>
-                  </div>
-                </a>
-              ))}
-            </div> */}
           </div>
         </div>
       </div>

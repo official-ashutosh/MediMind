@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="#1e40af" stroke="#3b82f6" stroke-width="3"/>
+  
+  <!-- Medical cross with brain integration -->
+  <g transform="translate(100, 100)">
+    <!-- Vertical bar of cross -->
+    <rect x="-12" y="-50" width="24" height="100" fill="#ffffff" rx="4"/>
+    
+    <!-- Horizontal bar of cross -->
+    <rect x="-50" y="-12" width="100" height="24" fill="#ffffff" rx="4"/>
+    
+    <!-- Brain outline on top of cross -->
+    <g transform="translate(0, -10)" opacity="0.9">
+      <!-- Left hemisphere -->
+      <path d="M -20,-25 Q -30,-25 -35,-20 Q -38,-15 -38,-8 Q -38,0 -35,5 Q -32,8 -25,10 Q -20,11 -15,10" 
+            fill="none" stroke="#60a5fa" stroke-width="3" stroke-linecap="round"/>
+      
+      <!-- Right hemisphere -->
+      <path d="M 20,-25 Q 30,-25 35,-20 Q 38,-15 38,-8 Q 38,0 35,5 Q 32,8 25,10 Q 20,11 15,10" 
+            fill="none" stroke="#60a5fa" stroke-width="3" stroke-linecap="round"/>
+      
+      <!-- Brain connection/corpus callosum -->
+      <path d="M -15,10 Q 0,12 15,10" fill="none" stroke="#60a5fa" stroke-width="2"/>
+      
+      <!-- Brain details - left side -->
+      <path d="M -30,-15 Q -28,-12 -30,-8" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
+      <path d="M -32,-5 Q -30,0 -32,3" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
+      
+      <!-- Brain details - right side -->
+      <path d="M 30,-15 Q 28,-12 30,-8" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
+      <path d="M 32,-5 Q 30,0 32,3" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    
+    <!-- Heartbeat line at bottom -->
+    <g transform="translate(0, 35)">
+      <path d="M -40,0 L -25,0 L -20,-8 L -15,8 L -10,0 L 10,0 L 15,-8 L 20,8 L 25,0 L 40,0" 
+            fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+  
+  <!-- Accent dots for medical theme -->
+  <circle cx="30" cy="50" r="4" fill="#60a5fa" opacity="0.6"/>
+  <circle cx="170" cy="50" r="4" fill="#60a5fa" opacity="0.6"/>
+  <circle cx="30" cy="150" r="4" fill="#60a5fa" opacity="0.6"/>
+  <circle cx="170" cy="150" r="4" fill="#60a5fa" opacity="0.6"/>
+</svg>

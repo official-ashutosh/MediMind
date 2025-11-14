@@ -128,12 +128,12 @@ const Predict = () => {
 
   // Glassmorphism style
   const glassmorphismStyle = {
-    background: "rgba(255, 255, 255, 0.25)",
-    backdropFilter: "blur(10px)",
-    WebkitBackdropFilter: "blur(10px)",
-    borderRadius: "10px",
-    border: "1px solid rgba(255, 255, 255, 0.18)",
-    boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)"
+    background: "rgba(255, 255, 255, 0.95)",
+    backdropFilter: "blur(20px)",
+    WebkitBackdropFilter: "blur(20px)",
+    borderRadius: "16px",
+    border: "2px solid rgba(25, 118, 210, 0.2)",
+    boxShadow: "0 8px 32px 0 rgba(13, 71, 161, 0.2)"
   };
 
   return (
@@ -153,8 +153,8 @@ const Predict = () => {
           speed={0.2}
           squareSize={40}
           direction="diagonal"
-          borderColor="#ffc05c"
-          hoverFillColor="#222"
+          borderColor="#1976d2"
+          hoverFillColor="#0d47a1"
         />
       </div>
 
@@ -164,7 +164,7 @@ const Predict = () => {
           {/* Prediction Column - Height based on content */}
           <div className="prediction-column">
             <div style={glassmorphismStyle} className="p-6">
-              <h2 className="text-2xl font-bold mb-4 text-white">Symptom Analysis</h2>
+              <h2 className="text-2xl font-bold mb-4 text-[#0d47a1]">Symptom Analysis</h2>
               <SymptomPredictor 
                 onPredictionStart={handlePredictionStart}
                 onPredictionResult={handlePredictionResult} 
@@ -176,29 +176,29 @@ const Predict = () => {
           <div className="right-column space-y-6">
             {/* Precautions Box */}
             <div style={glassmorphismStyle} className="p-6">
-              <h2 className="text-2xl font-bold mb-4 text-black">Disease Precautions</h2>
+              <h2 className="text-2xl font-bold mb-4 text-[#0d47a1]">Disease Precautions</h2>
               
               {isPredicting ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center">
                   <div className="animate-pulse mb-4">
-                    <svg className="w-16 h-16 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg className="w-16 h-16 text-[#1976d2]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                   </div>
-                  <p className="text-lg text-black">Processing your symptoms...</p>
+                  <p className="text-lg text-[#0d47a1]">Processing your symptoms...</p>
                 </div>
               ) : precautionsLoading ? (
                 <div className="flex justify-center items-center py-12">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#1976d2]"></div>
                 </div>
               ) : precautions && precautions.length > 0 ? (
                 <div className="space-y-6">
                   {precautions.map((item, idx) => (
                     <div key={idx} className="space-y-4">
-                      <h3 className="text-xl font-semibold text-black mb-2">
+                      <h3 className="text-xl font-semibold text-[#0d47a1] mb-2">
                         {item.disease} Precautions
                       </h3>
-                      <ul className="list-disc list-inside text-black space-y-2">
+                      <ul className="list-disc list-inside text-gray-700 space-y-2">
                         {item.precautions
                           .filter(precaution => precaution !== "nan")
                           .map((precaution, index) => (
@@ -213,10 +213,10 @@ const Predict = () => {
                 </div>
               ) : (
                 <div className="flex flex-col items-center justify-center py-12 text-center">
-                  <svg className="w-16 h-16 text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="w-16 h-16 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
                   </svg>
-                  <p className="text-lg text-white">No precautions found for this condition</p>
+                  <p className="text-lg text-gray-600">No precautions found for this condition</p>
                 </div>
               )}
             </div>
@@ -224,21 +224,21 @@ const Predict = () => {
             {/* Recommended Doctors Box - Only show when logged in */}
             {isAuthenticated && (
               <div style={glassmorphismStyle} className="p-6">
-                <h2 className="text-2xl font-bold mb-4 text-white">Recommended Doctors</h2>
+                <h2 className="text-2xl font-bold mb-4 text-[#0d47a1]">Recommended Doctors</h2>
                 
                 {isPredicting ? (
                   <div className="flex flex-col items-center justify-center py-12 text-center">
                     <div className="animate-pulse mb-4">
-                      <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <svg className="w-16 h-16 text-[#1976d2]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                       </svg>
                     </div>
-                    <p className="text-lg text-white">Processing your symptoms...</p>
-                    <p className="text-sm text-gray-200 mt-2">We'll find the right specialists for you.</p>
+                    <p className="text-lg text-[#0d47a1]">Processing your symptoms...</p>
+                    <p className="text-sm text-gray-600 mt-2">We'll find the right specialists for you.</p>
                   </div>
                 ) : loading ? (
                   <div className="flex justify-center items-center py-12">
-                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#1976d2]"></div>
                   </div>
                 ) : error ? (
                   <div className="bg-red-100 bg-opacity-50 backdrop-blur-sm border border-red-400 text-red-700 px-4 py-3 rounded">
@@ -249,16 +249,16 @@ const Predict = () => {
                     {doctors.map((doctor) => (
                       <div
                         key={doctor._id}
-                        className="bg-blue-600 bg-opacity-25 backdrop-blur-sm border-l-4 border-l-blue-400 rounded-lg p-4 hover:shadow-lg transition-all duration-300"
+                        className="bg-white bg-opacity-90 backdrop-blur-sm border-l-4 border-l-[#00897b] rounded-lg p-4 hover:shadow-xl transition-all duration-300 hover:border-l-[#1976d2]"
                       >
-                        <h3 className="text-xl font-semibold text-white">{doctor.name}</h3>
-                        <p className="text-blue-100 mb-2 font-medium">{doctor.qualification}</p>
-                        <p className="text-sm text-gray-200">{doctor.address}</p>
+                        <h3 className="text-xl font-semibold text-[#0d47a1]">{doctor.name}</h3>
+                        <p className="text-[#1976d2] mb-2 font-medium">{doctor.qualification}</p>
+                        <p className="text-sm text-gray-600">{doctor.address}</p>
                         <div className="mt-3 flex justify-between items-center">
-                          <span className="text-blue-200 font-medium">{doctor.contact_no}</span>
+                          <span className="text-[#00897b] font-medium">{doctor.contact_no}</span>
                           <button 
                             onClick={() => handleBookAppointment(doctor)}
-                            className="bg-gradient-to-r from-[#ff8c42] to-[#ff3e55] text-white px-4 py-2 rounded hover:from-[#ff3e55] hover:to-[#ff8c42] transition-all duration-300"
+                            className="bg-gradient-to-r from-[#1976d2] to-[#00897b] text-white px-4 py-2 rounded hover:from-[#0d47a1] hover:to-[#00695c] transition-all duration-300"
                           >
                             Book Appointment
                           </button>
@@ -268,15 +268,15 @@ const Predict = () => {
                   </div>
                 ) : prediction ? (
                   <div className="text-center py-8">
-                    <p className="text-gray-200">No doctors found for this condition.</p>
+                    <p className="text-gray-600">No doctors found for this condition.</p>
                   </div>
                 ) : (
                   <div className="flex flex-col items-center justify-center py-12 text-center">
-                    <svg className="w-16 h-16 text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg className="w-16 h-16 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
                     </svg>
-                    <p className="text-lg text-white">Enter your symptoms</p>
-                    <p className="text-sm text-gray-200 mt-2">Doctor recommendations will appear here</p>
+                    <p className="text-lg text-[#0d47a1]">Enter your symptoms</p>
+                    <p className="text-sm text-gray-600 mt-2">Doctor recommendations will appear here</p>
                   </div>
                 )}
               </div>
@@ -286,11 +286,11 @@ const Predict = () => {
             {!isAuthenticated && prediction && (
               <div style={glassmorphismStyle} className="p-6">
                 <div className="text-center py-6">
-                  <svg className="w-12 h-12 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="w-12 h-12 text-[#1976d2] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                   </svg>
-                  <h3 className="text-xl font-semibold text-white mb-2">Login to See Doctor Recommendations</h3>
-                  <p className="text-gray-200">Sign in to see specialists for your condition and book appointments.</p>
+                  <h3 className="text-xl font-semibold text-[#0d47a1] mb-2">Login to See Doctor Recommendations</h3>
+                  <p className="text-gray-600">Sign in to see specialists for your condition and book appointments.</p>
                 </div>
               </div>
             )}

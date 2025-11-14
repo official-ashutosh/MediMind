@@ -164,7 +164,7 @@ const BookAppointment = ({ doctor, onClose, onAppointmentBooked }) => {
                   }}
                   className={`px-3 py-2 rounded text-xs border flex-shrink-0 flex flex-col items-center 
                     ${selectedDate === dateObj
-                      ? "bg-blue-500 text-white border-blue-500" 
+                      ? "bg-[#1976d2] text-white border-[#1976d2]" 
                       : "bg-gray-100 text-gray-800 border-gray-300"}`}
                 >
                   <Calendar className="w-3 h-3 mb-1" />
@@ -188,7 +188,7 @@ const BookAppointment = ({ doctor, onClose, onAppointmentBooked }) => {
                       onClick={() => setSelectedSlot(slot)}
                       className={`px-3 py-1 rounded text-xs border transition-colors 
                         ${selectedSlot === slot
-                          ? "bg-blue-500 text-white border-blue-500" 
+                          ? "bg-[#1976d2] text-white border-[#1976d2]" 
                           : "bg-gray-100 text-gray-800 border-gray-300"}`}
                     >
                       <Clock className="w-3 h-3 inline mr-1" /> {slot}
@@ -219,7 +219,7 @@ const BookAppointment = ({ doctor, onClose, onAppointmentBooked }) => {
             <button
               onClick={bookAppointment}
               disabled={!selectedSlot || !selectedDate || loading}
-              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors text-sm disabled:opacity-50"
+              className="bg-[#1976d2] hover:bg-[#0d47a1] text-white px-4 py-2 rounded-lg transition-colors text-sm disabled:opacity-50"
             >
               {loading ? "Booking..." : "Confirm Appointment"}
             </button>

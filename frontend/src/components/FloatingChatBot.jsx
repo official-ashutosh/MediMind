@@ -106,7 +106,7 @@ const FloatingChatBot = () => {
         // Chat Window
         <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-lg shadow-xl border border-white border-opacity-20 w-80 md:w-96 flex flex-col transition-all duration-300">
           {/* Chat Header */}
-          <div className="flex justify-between items-center p-3 border-b border-white border-opacity-20 bg-blue-600 rounded-t-lg">
+          <div className="flex justify-between items-center p-3 border-b border-white border-opacity-20 bg-[#1976d2] rounded-t-lg">
             <h2 className="text-lg font-semibold text-white">🩺 Health Assistant</h2>
             <button 
               onClick={toggleChat}
@@ -156,7 +156,7 @@ const FloatingChatBot = () => {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Describe your symptoms..."
-                className="flex-grow px-3 py-2 bg-white bg-opacity-40 rounded-l-lg focus:outline-none text-black placeholder-gray-200"
+                className="flex-grow px-3 py-2 bg-white bg-opacity-40 rounded-l-lg focus:outline-none text-black placeholder-gray-600"
                 disabled={isLoading}
               />
               <button
@@ -171,7 +171,7 @@ const FloatingChatBot = () => {
             {/* Reset button - Increased opacity */}
             <button
               onClick={startChat}
-              className="flex items-center px-3 py-1 mt-2 bg-white bg-opacity-30 hover:bg-opacity-40 rounded text-white text-xs transition-colors duration-200 w-full justify-center"
+              className="flex items-center px-3 py-1 mt-2 bg-white bg-opacity-30 hover:bg-opacity-40 rounded text-gray-800 text-xs transition-colors duration-200 w-full justify-center"
             >
               <RefreshCw className="w-3 h-3 mr-1" />
               Reset Conversation

@@ -6,8 +6,8 @@ const Squares = ({
   speed = 0.2,
   squareSize = 40,
   direction = "diagonal",
-  borderColor = "#0066CC", // Updated border color
-  hoverFillColor = "#003366", // Updated hover fill color
+  borderColor = "#1976d2", // Medical blue
+  hoverFillColor = "#0d47a1", // Darker medical blue
 }) => {
   // Generate squares for the background
   const squareCount = 50; // Number of squares to generate
@@ -23,7 +23,7 @@ const Squares = ({
     }));
 
   return (
-    <div className="w-full h-full bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
+    <div className="w-full h-full bg-gradient-to-br from-[#0d47a1] to-[#00897b] relative overflow-hidden">
       {squares.map((square) => (
         <div
           key={square.id}
@@ -113,8 +113,8 @@ const ContactUsPage = () => {
           speed={0.2}
           squareSize={40}
           direction="diagonal"
-          borderColor="#0066CC" // Updated border color
-          hoverFillColor="#003366" // Updated hover fill color
+          borderColor="#1976d2" // Medical blue
+          hoverFillColor="#0d47a1" // Darker medical blue
         />
       </div>
 
@@ -129,7 +129,7 @@ const ContactUsPage = () => {
               <label className="block text-white mb-2">Name</label>
               <input
                 type="text"
-                className="w-full p-3 bg-white bg-opacity-10 rounded-lg border border-white border-opacity-20 text-white focus:outline-none focus:ring-2 focus:ring-[#0066CC]" // Updated focus ring color
+                className="w-full p-3 bg-white bg-opacity-10 rounded-lg border border-white border-opacity-20 text-white focus:outline-none focus:ring-2 focus:ring-[#1976d2]" // Medical blue
                 placeholder="Your name"
               />
             </div>
@@ -138,7 +138,7 @@ const ContactUsPage = () => {
               <label className="block text-white mb-2">Email</label>
               <input
                 type="email"
-                className="w-full p-3 bg-white bg-opacity-10 rounded-lg border border-white border-opacity-20 text-white focus:outline-none focus:ring-2 focus:ring-[#0066CC]" // Updated focus ring color
+                className="w-full p-3 bg-white bg-opacity-10 rounded-lg border border-white border-opacity-20 text-white focus:outline-none focus:ring-2 focus:ring-[#1976d2]" // Medical blue
                 placeholder="your@email.com"
               />
             </div>
@@ -146,12 +146,12 @@ const ContactUsPage = () => {
             <div>
               <label className="block text-white mb-2">Message</label>
               <textarea
-                className="w-full p-3 bg-white bg-opacity-10 rounded-lg border border-white border-opacity-20 text-white h-32 resize-none focus:outline-none focus:ring-2 focus:ring-[#0066CC]" // Updated focus ring color
+                className="w-full p-3 bg-white bg-opacity-10 rounded-lg border border-white border-opacity-20 text-white h-32 resize-none focus:outline-none focus:ring-2 focus:ring-[#1976d2]" // Medical blue
                 placeholder="How can we help you?"
               ></textarea>
             </div>
 
-            <button className="w-full bg-[#0066CC] hover:bg-[#004C99] text-white font-bold py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center">
+            <button className="w-full bg-[#1976d2] hover:bg-[#0d47a1] text-white font-bold py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center">
               <Send className="mr-2 h-5 w-5" />
               Send Message
             </button>
@@ -159,7 +159,7 @@ const ContactUsPage = () => {
         </div>
 
         {/* Info section */}
-        <div className="w-full md:w-2/5 bg-gradient-to-br from-[#0066CC] to-[#004C99] p-8 flex flex-col justify-between">
+        <div className="w-full md:w-2/5 bg-gradient-to-br from-[#1976d2] to-[#00897b] p-8 flex flex-col justify-between">
           <div>
             <h3 className="text-2xl font-bold text-white mb-8">Get in touch</h3>
 
@@ -181,9 +181,9 @@ const ContactUsPage = () => {
                 <div>
                   <p className="text-white opacity-70">Address</p>
                   <p className="text-white font-semibold">
-                    Christ College of Engineering
+                    Indian Institute of Information Technology Allahabad
                     <br />
-                    Irinjalakuda, Kerala
+                    Jhalwa, Prayagraj, Uttar Pradesh
                   </p>
                 </div>
               </div>

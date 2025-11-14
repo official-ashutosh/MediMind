@@ -129,7 +129,7 @@ const DoctorDetailModal = ({ doctor, onClose }) => {
             
             <div className="flex gap-2 mt-4">
               <button 
-                className="flex-1 bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded-lg transition-colors flex items-center justify-center gap-1 text-sm"
+                className="flex-1 bg-[#1976d2] hover:bg-[#0d47a1] text-white px-3 py-2 rounded-lg transition-colors flex items-center justify-center gap-1 text-sm"
                 onClick={openAppointmentModal}
               >
                 <Calendar className="w-4 h-4" />
@@ -170,7 +170,7 @@ const DoctorCard = ({ doctor, onClick }) => {
 
   return (
     <motion.div 
-      className="backdrop-blur-lg bg-white/10 shadow-md rounded-xl border border-white/30 relative overflow-hidden cursor-pointer w-full"
+      className="backdrop-blur-lg bg-white/90 shadow-md rounded-xl border border-gray-200 relative overflow-hidden cursor-pointer w-full hover:shadow-xl transition-shadow"
       whileHover={{ scale: 1.01 }}
       transition={{ duration: 0.2 }}
       onClick={() => onClick(doctor)}
@@ -186,18 +186,18 @@ const DoctorCard = ({ doctor, onClick }) => {
         </div>
         
         <div className="ml-3 flex-1 min-w-0">
-          <h2 className="text-base font-semibold text-[#242120] truncate">{doctor.name}</h2>
+          <h2 className="text-base font-semibold text-[#0d47a1] truncate">{doctor.name}</h2>
           <div className="flex items-center gap-1 mt-0.5">
-            <Award className="w-3 h-3 text-blue-400 flex-shrink-0" />
-            <p className="text-[#242120] font-medium text-xs truncate">{doctor.specialization_name}</p>
+            <Award className="w-3 h-3 text-[#1976d2] flex-shrink-0" />
+            <p className="text-gray-700 font-medium text-xs truncate">{doctor.specialization_name}</p>
           </div>
           <div className="flex items-center gap-1 mt-0.5">
-            <MapPin className="w-3 h-3 text-green-400 flex-shrink-0" />
-            <p className="text-[#242120] text-xs truncate">{doctor.hospital_name}</p>
+            <MapPin className="w-3 h-3 text-[#00897b] flex-shrink-0" />
+            <p className="text-gray-700 text-xs truncate">{doctor.hospital_name}</p>
           </div>
           <div className="flex items-center gap-1 mt-0.5">
-            <span className="w-3 h-3 text-blue-300 flex-shrink-0">📞</span>
-            <span className="text-[#050505] font-medium text-xs truncate">{doctor.contact_no}</span>
+            <span className="w-3 h-3 flex-shrink-0">📞</span>
+            <span className="text-gray-800 font-medium text-xs truncate">{doctor.contact_no}</span>
           </div>
         </div>
         
@@ -209,7 +209,7 @@ const DoctorCard = ({ doctor, onClick }) => {
         </button>
       </div>
       
-      <button className="w-full bg-blue-500 hover:bg-blue-600 text-white px-3 py-1.5 transition-colors flex items-center justify-center gap-1 text-xs rounded-t-none rounded-b-xl">
+      <button className="w-full bg-[#1976d2] hover:bg-[#0d47a1] text-white px-3 py-1.5 transition-colors flex items-center justify-center gap-1 text-xs rounded-t-none rounded-b-xl">
         <Calendar className="w-3 h-3" />
         <span>View Profile</span>
       </button>
@@ -262,8 +262,8 @@ const DoctorList = () => {
           speed={0.05}
           squareSize={20}
           direction="diagonal"
-          borderColor="#ffc05c"
-          hoverFillColor="#222"
+          borderColor="#1976d2"
+          hoverFillColor="#0d47a1"
         />
       </div>
 
@@ -271,13 +271,13 @@ const DoctorList = () => {
         {/* View toggle buttons */}
         <div className="flex justify-center gap-2 my-2 w-full max-w-xs mx-auto">
           <button 
-            className={`flex-1 px-3 py-1.5 rounded-lg transition-colors text-sm ${view === 'grid' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'}`}
+            className={`flex-1 px-3 py-1.5 rounded-lg transition-colors text-sm ${view === 'grid' ? 'bg-[#1976d2] text-white' : 'bg-gray-200 text-gray-800'}`}
             onClick={() => setView('grid')}
           >
             Grid View
           </button>
           <button 
-            className={`flex-1 px-3 py-1.5 rounded-lg transition-colors text-sm ${view === 'map' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'}`}
+            className={`flex-1 px-3 py-1.5 rounded-lg transition-colors text-sm ${view === 'map' ? 'bg-[#1976d2] text-white' : 'bg-gray-200 text-gray-800'}`}
             onClick={() => setView('map')}
           >
             Map View
@@ -286,11 +286,11 @@ const DoctorList = () => {
 
         {loading ? (
           <div className="flex flex-col items-center justify-center h-64">
-            <div className="w-10 h-10 border-3 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-            <p className="text-center text-sm font-semibold mt-3">Loading doctors...</p>
+            <div className="w-10 h-10 border-3 border-[#1976d2] border-t-transparent rounded-full animate-spin"></div>
+            <p className="text-center text-sm font-semibold mt-3 text-[#1976d2]">Loading doctors...</p>
           </div>
         ) : error ? (
-          <p className="text-center text-red-500 mt-4 bg-red-50 px-3 py-2 rounded-lg border border-red-200 mx-2 text-sm">
+          <p className="text-center text-red-600 font-semibold mt-4 bg-red-50 px-3 py-2 rounded-lg border border-red-200 mx-2 text-sm">
             {error}
           </p>
         ) : view === 'grid' ? (

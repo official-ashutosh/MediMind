@@ -114,19 +114,19 @@ const ChatBot = () => {
           </h1>
           
           {/* Chat container with glassmorphism effect */}
-          <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-lg shadow-lg overflow-hidden border border-white border-opacity-20">
+          <div className="bg-white bg-opacity-20 backdrop-blur-lg rounded-lg shadow-lg overflow-hidden border border-white border-opacity-30">
             {/* Chat messages */}
-            <div className="h-96 overflow-y-auto p-4 space-y-4">
+            <div className="h-96 overflow-y-auto p-4 space-y-4 bg-white bg-opacity-10">
               {messages.map((msg, index) => (
                 <div 
                   key={index} 
                   className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div 
-                    className={`max-w-xs md:max-w-md px-4 py-2 rounded-lg ${
+                    className={`max-w-xs md:max-w-md px-4 py-2 rounded-lg shadow-md ${
                       msg.sender === "user" 
-                        ? "bg-purple-600 text-white rounded-br-none" 
-                        : "bg-gray-100 bg-opacity-80 text-gray-800 rounded-bl-none"
+                        ? "bg-[#1976d2] text-white rounded-br-none" 
+                        : "bg-white text-gray-800 rounded-bl-none border border-gray-200"
                     }`}
                   >
                     {msg.text}
@@ -135,8 +135,8 @@ const ChatBot = () => {
               ))}
               {isLoading && (
                 <div className="flex justify-start">
-                  <div className="bg-gray-100 bg-opacity-80 px-4 py-2 rounded-lg rounded-bl-none flex items-center">
-                    <Loader className="w-4 h-4 mr-2 animate-spin" />
+                  <div className="bg-white text-gray-800 px-4 py-2 rounded-lg rounded-bl-none flex items-center shadow-md border border-gray-200">
+                    <Loader className="w-4 h-4 mr-2 animate-spin text-[#1976d2]" />
                     Thinking...
                   </div>
                 </div>
@@ -145,7 +145,7 @@ const ChatBot = () => {
             </div>
             
             {/* Input area */}
-            <div className="p-4 border-t border-white border-opacity-20 bg-white bg-opacity-5">
+            <div className="p-4 border-t border-gray-200 bg-white">
               <div className="flex">
                 <input
                   type="text"
@@ -153,13 +153,13 @@ const ChatBot = () => {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Describe your symptoms..."
-                  className="flex-grow px-4 py-2 bg-white bg-opacity-20 rounded-l-lg focus:outline-none text-white placeholder-gray-300"
+                  className="flex-grow px-4 py-2 bg-gray-50 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-[#1976d2] text-gray-800 placeholder-gray-500"
                   disabled={isLoading}
                 />
                 <button
                   onClick={sendMessage}
                   disabled={isLoading || !input.trim()}
-                  className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-r-lg transition-colors duration-200"
+                  className="px-4 py-2 bg-[#1976d2] hover:bg-[#0d47a1] text-white rounded-r-lg transition-colors duration-200 disabled:opacity-50"
                 >
                   <Send className="w-5 h-5" />
                 </button>
@@ -171,7 +171,7 @@ const ChatBot = () => {
           <div className="mt-4 flex justify-center">
             <button
               onClick={startChat}
-              className="flex items-center px-4 py-2 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg text-white transition-colors duration-200"
+              className="flex items-center px-4 py-2 bg-white bg-opacity-90 hover:bg-opacity-100 border border-gray-200 rounded-lg text-gray-800 transition-colors duration-200 shadow-md"
             >
               <RefreshCw className="w-4 h-4 mr-2" />
               Reset Conversation

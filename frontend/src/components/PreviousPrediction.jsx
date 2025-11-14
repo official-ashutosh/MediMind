@@ -125,29 +125,29 @@ const PreviousPredictions = () => {
     }
   };
 
-  if (!isAuthenticated) return <div>Please log in to view your predictions.</div>;
-  if (isLoading) return <div>Loading predictions...</div>;
-  if (error) return <div className="text-red-500">{error}</div>;
+  if (!isAuthenticated) return <div className="flex items-center justify-center min-h-screen text-[#1976d2] font-semibold">Please log in to view your predictions.</div>;
+  if (isLoading) return <div className="flex items-center justify-center min-h-screen text-[#1976d2] font-semibold">Loading predictions...</div>;
+  if (error) return <div className="flex items-center justify-center min-h-screen text-red-600 font-semibold">{error}</div>;
 
   return (
     <div className="relative min-h-screen px-6 py-4">
       <div className="fixed inset-0 -z-10">
-        <Squares speed={0.2} squareSize={40} direction="diagonal" borderColor="#3b82f6" hoverFillColor="#1e3a8a" />
+        <Squares speed={0.2} squareSize={40} direction="diagonal" borderColor="#1976d2" hoverFillColor="#0d47a1" />
       </div>
 
-      <div className="relative w-full mx-auto bg-white/70 backdrop-blur-md border border-blue-300/50 shadow-lg rounded-lg overflow-hidden mt-4">
-        <div className="px-6 py-4 bg-blue-100/50 border-b border-blue-300/50">
-          <h2 className="text-lg font-semibold text-blue-600">Previous Predictions</h2>
+      <div className="relative w-full mx-auto bg-white/95 backdrop-blur-md border border-[#1976d2]/30 shadow-lg rounded-lg overflow-hidden mt-4">
+        <div className="px-6 py-4 bg-[#e3f2fd] border-b border-[#1976d2]/30">
+          <h2 className="text-lg font-semibold text-[#0d47a1]">Previous Predictions</h2>
         </div>
 
         <div className="px-4 py-4 overflow-y-auto">
           {predictions.length === 0 ? (
-            <p className="text-blue-500">No previous predictions found.</p>
+            <p className="text-[#1976d2] font-medium">No previous predictions found.</p>
           ) : (
             <div className="overflow-x-auto">
-              <table className="w-full border-collapse bg-white/90 rounded-lg shadow-md">
+              <table className="w-full border-collapse bg-white rounded-lg shadow-md">
                 <thead>
-                  <tr className="bg-blue-200/50 text-blue-800">
+                  <tr className="bg-[#1976d2] text-white">
                     <th className="px-4 py-2 text-left text-sm font-semibold">Date</th>
                     <th className="px-4 py-2 text-left text-sm font-semibold">Symptoms</th>
                     <th className="px-4 py-2 text-left text-sm font-semibold">Disease</th>
@@ -157,21 +157,21 @@ const PreviousPredictions = () => {
                     <th className="px-4 py-2 text-center text-sm font-semibold">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-blue-300/50">
+                <tbody className="divide-y divide-gray-200">
                   {predictions.map((prediction) => (
-                    <tr key={prediction._id} className="hover:bg-blue-100/50 transition-all">
-                      <td className="px-4 py-2">{new Date(prediction.created_at).toLocaleDateString()}</td>
-                      <td className="px-4 py-2">{prediction.symptoms.join(", ")}</td>
-                      <td className="px-4 py-2 text-blue-700 font-medium">{prediction.disease_name}</td>
+                    <tr key={prediction._id} className="hover:bg-[#e3f2fd]/50 transition-all">
+                      <td className="px-4 py-2 text-gray-800">{new Date(prediction.created_at).toLocaleDateString()}</td>
+                      <td className="px-4 py-2 text-gray-800">{prediction.symptoms.join(", ")}</td>
+                      <td className="px-4 py-2 text-[#0d47a1] font-medium">{prediction.disease_name}</td>
                       <td className="px-4 py-2">
-                        <span className={`px-2 py-1 rounded text-xs font-medium ${prediction.prediction_type === "rule-based" ? "bg-green-100 text-green-800" : "bg-blue-100 text-blue-800"}`}>
+                        <span className={`px-2 py-1 rounded text-xs font-medium ${prediction.prediction_type === "rule-based" ? "bg-green-100 text-green-800" : "bg-[#e3f2fd] text-[#0d47a1]"}`}>
                           {prediction.prediction_type === "rule-based" ? "Rule-based" : "ML"}
                         </span>
                       </td>
-                      <td className="px-4 py-2">
+                      <td className="px-4 py-2 text-gray-800">
                         {renderConfidenceScores(prediction)}
                       </td>
-                      <td className="px-4 py-2">
+                      <td className="px-4 py-2 text-gray-800">
                         {renderPredictions(prediction)}
                       </td>
                       <td className="px-4 py-2 text-center">
